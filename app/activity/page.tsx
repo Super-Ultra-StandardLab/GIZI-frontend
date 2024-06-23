@@ -1,5 +1,7 @@
+import Activity from "@/components/activity";
+
 const Page = () => {
-  return <h1>기지 활동 페이지~</h1>;
+  return <Activity />;
 };
 
 export default Page;
