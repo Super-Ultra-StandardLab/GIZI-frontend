@@ -1,113 +1,183 @@
+import YouTubePage from "@/components/youtube";
 import Image from "next/image";
+import InfoIcon from "@/public/assets/info.svg";
+import Link from "next/link";
+import PdfBtn from "@/components/pdf/pdfbtn";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="w-screen flex flex-col gap-20">
+      <div className="w-[100%] h-[700px] flex justify-center bg-blue-100">
+        <div className="w-[70%] h-[80%] flex justify-between my-auto">
+          <div className="text-[58px] font-bold my-auto">
+            알로이시오기지1968은
+            <br />
+            <span className="underline decoration-[#FFF27F] decoration-[30px] underline-offset-[-20px]">
+              삶의 기본기
+            </span>
+            와
+            <span className="underline decoration-[#B8F1B7] decoration-[30px] underline-offset-[-20px]">
+              미래역량
+            </span>
+            을
+            <br /> 키우는 미래교육센터입니다.
+          </div>
+          <div className="w-[40%] my-auto">
+            <YouTubePage />
+          </div>
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="flex justify-center">
+        <div className="w-[75%] flex justify-between">
+          <div className="w-[48%] flex flex-col gap-72">
+            <div className="w-[100%] h-[400px] relative">
+              <div className="w-[100%] flex justify-center mb-[-30px]">
+                <div className="w-[50%] h-[70px] bg-[#FFF27F] rounded-full flex flex-col justify-center z-20">
+                  <div className="text-center text-[30px] font-bold">
+                    단체체험 프로그램
+                  </div>
+                </div>
+              </div>
+              <div className="w-[100%] h-[620px] bg-white p-10 border-2 border-[#E6E6E6] rounded-3xl absolute flex flex-col gap-8 text-xl">
+                <div className="mt-10">
+                  단체 체험 프로그램은 초·중·고등학교 진로체험, 중학교
+                  자유학년제 및 고등학교 체험활동 등을 통해 진로 탐색을
+                  구체화하고 자신의 역량과 소질을 찾을 수 있도록 구성되어
+                  있습니다.
+                </div>
+                <div className="flex flex-col gap-4 p-10">
+                  <div className="flex">
+                    <div className="rounded-full bg-[#f7f7f7] py-2 px-4 font-bold">
+                      대상
+                    </div>
+                    <div className="my-auto mx-4">
+                      초(3~6학년)·중·고 학교단체
+                    </div>
+                  </div>
+                  <div className="flex">
+                    <div className="rounded-full bg-[#f7f7f7] py-2 px-4 font-bold">
+                      운영시간
+                    </div>
+                    <div className="my-auto mx-4">월~금 09:00 ~ 15:30</div>
+                  </div>
+                  <div className="flex">
+                    <div className="rounded-full bg-[#f7f7f7] py-2 px-4 font-bold">
+                      신청방법
+                    </div>
+                    <div className="my-auto mx-4">온라인 접수 후 개별 확정</div>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <button className="w-[48%] p-7 rounded-3xl text-white bg-[#2F99C8]">
+                    <div className="text-[24px] font-bold">학교단체체험</div>
+                    <div className="">신청하기</div>
+                  </button>
+                  <PdfBtn />
+                </div>
+              </div>
+            </div>
+            <div className="w-[100%] bg-white p-10 border-2 border-[#f7f7f7] rounded-3xl flex flex-col gap-8 text-lg">
+              <div className="rounded-full bg-[#f0f0f0] py-2 px-10 font-bold text-2xl mr-auto">
+                이용시 유의사항
+              </div>
+              <div className="flex gap-2">
+                <Image src={InfoIcon} alt="INFO_ICON" />
+                <div>
+                  기본프로그램 5개 운영, 인원수에 따라 최대 9개까지 프로그램
+                  추가 개설
+                </div>
+              </div>
+              <div className="flex gap-2">
+                <Image src={InfoIcon} alt="INFO_ICON" />
+                <div>최소 50명 최대 160명 까지 체험 가능 </div>
+              </div>
+              <div className="flex gap-2">
+                <Image src={InfoIcon} alt="INFO_ICON" />
+                <div>
+                  전일제는 점심식사 장소 제공(잔반과 쓰레기는 학교 또는 업체에서
+                  처리), 반일제는 점심식사 불가
+                </div>
+              </div>
+              <div className="flex gap-2">
+                <Image src={InfoIcon} alt="INFO_ICON" />
+                <div>교통편은 학교에서 마련</div>
+              </div>
+            </div>
+          </div>
+          <div className="w-[48%] flex flex-col gap-72">
+            <div className="w-[100%] h-[400px] relative">
+              <div className="w-[100%] flex justify-center mb-[-30px]">
+                <div className="w-[50%] h-[70px] bg-[#B8F1B7] rounded-full flex flex-col justify-center z-20">
+                  <div className="text-center text-[30px] font-bold">
+                    방과후학교 프로그램
+                  </div>
+                </div>
+              </div>
+              <div className="w-[100%] h-[620px] bg-white p-10 border-2 border-[#E6E6E6] rounded-3xl absolute flex flex-col gap-8 text-xl justify-between ">
+                <div className="mt-10">
+                  통합방과후학교 프로그램은 단발성이 아닌 연속적이고 체계적인
+                  단계별 구성으로 학생들의 지속적인 성장에 초점을 둔
+                  프로그램입니다.
+                </div>
+                <div className="flex flex-col gap-4 p-10">
+                  <div className="flex">
+                    <div className="rounded-full bg-[#f7f7f7] py-2 px-4 font-bold">
+                      대상
+                    </div>
+                    <div className="my-auto mx-4">
+                      협약학교 및 부산 소재 초등학교
+                    </div>
+                  </div>
+                  <div className="flex">
+                    <div className="rounded-full bg-[#f7f7f7] py-2 px-4 font-bold">
+                      기간
+                    </div>
+                    <div className="my-auto mx-4">
+                      2개월(8주)간 주 1회 총 16차시
+                    </div>
+                  </div>
+                  <div className="flex">
+                    <div className="rounded-full bg-[#f7f7f7] px-4 font-bold w-[160px] flex flex-col justify-center">
+                      <div className="text-center">신청방법</div>
+                    </div>
+                    <div className="mx-4">
+                      온라인 접수, 선착순 마감 (학교별로 일괄신청시
+                      통합방과후학교 담당자에게 문의)
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <button className="w-[48%] p-7 rounded-3xl text-white bg-[#2F99C8]">
+                    <div className="text-[24px] font-bold">방과후학교</div>
+                    <div className="">신청하기</div>
+                  </button>
+                  <PdfBtn />
+                </div>
+              </div>
+            </div>
+            <div className="w-[100%] bg-white p-10 border-2 border-[#f7f7f7] rounded-3xl flex flex-col gap-8 text-lg">
+              <div className="rounded-full bg-[#f0f0f0] py-2 px-10 font-bold text-2xl mr-auto">
+                이용시 유의사항
+              </div>
+              <div className="flex gap-2">
+                <Image src={InfoIcon} alt="INFO_ICON" />
+                <div>모집정원의 50%미만 신청시 폐강될 수 있습니다.</div>
+              </div>
+              <div className="flex gap-2">
+                <Image src={InfoIcon} alt="INFO_ICON" />
+                <div>협약 학교대상 셔틀버스를 운행함</div>
+              </div>
+              <div className="flex gap-2">
+                <Image src={InfoIcon} alt="INFO_ICON" />
+                <div>
+                  셔틀버스 노선은 별도공지 (감천초, 구평초, 남부민초, 서천초,
+                  송도초, 아미초, 알로이시오초, 옥천초, 천마초, 토성초)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
