@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const Footer = () => {
   return (
     <div className="flex flex-col my-[150px]">
@@ -39,10 +37,10 @@ const Footer = () => {
               src: "/assets/partner7.png",
               path: "https://www.doosan.com/kr",
             },
-          ].map((item, index) => (
-            <Link href={item.path} className="mx-auto">
+          ].map((item) => (
+            <a target="_blank" href={item.path} className="mx-auto">
               <img src={item.src} alt={item.path} />
-            </Link>
+            </a>
           ))}
         </div>
       </div>

@@ -16,7 +16,7 @@ const Header = () => {
   const handleScroll = () => {
     if (window.scrollY >= 50) {
       setScroll(true);
-      console.log(scroll);
+      // console.log(scroll);
     } else {
       setScroll(false);
     }
@@ -25,7 +25,7 @@ const Header = () => {
   return (
     <div
       className={`w-screen h-[9vh] flex justify-between px-32 fixed z-50 transition-all duration-500 ${
-        scroll ? "bg-white" : ""
+        scroll ? "bg-white shadow" : ""
       }`}
     >
       <Link href="/" className="my-auto">
