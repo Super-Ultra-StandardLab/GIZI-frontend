@@ -2,12 +2,16 @@
 
 import { admin, getSubmit, login } from "@/api";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Post from "../post";
 
 const Login = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
+  const [refresh, setRefresh] = useState(false);
   const [isLogin, setIsLogin] = useState<null | string>("");
+
+  const router = useRouter();
 
   useEffect(() => {
     return () => {
@@ -25,8 +29,10 @@ const Login = () => {
       setPassword("");
       return alert("로그인에 실패하였습니다.");
     }
+    router.push("/"); // post구현 후 수정
     alert("로그인에 성공하였습니다.");
     localStorage.setItem("access_token", result.token);
+    setIsLogin(localStorage.getItem("access_token"));
   };
 
   const ing = async () => {
