@@ -1,4 +1,5 @@
 export default interface ApplyInfoType {
+  programId: number;
   programName: string;
   time: "morning" | "afternoon" | "allday";
   date: Date;
@@ -9,4 +10,6 @@ export default interface ApplyInfoType {
   participant: number;
   grade: string;
   question: string;
+  x?: number;
+  y?: number;
 }

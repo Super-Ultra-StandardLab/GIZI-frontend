@@ -15,6 +15,8 @@ import Grade from "@/public/assets/grade.svg";
 import Apply from "@/public/assets/apply.svg";
 import { useState } from "react";
 import { submit } from "@/api";
+import { useAtom, useStore } from "jotai";
+import { refreshContext } from "@/context";
 
 const ApplyFormContainer = ({
   info,
@@ -24,6 +26,7 @@ const ApplyFormContainer = ({
   position: { x: number; y: number };
 }) => {
   const [applyInfo, setApplyInfo] = useState({
+    programId: 0,
     programName: info.programName,
     time: info.time,
     date: info.date,
@@ -48,7 +51,6 @@ const ApplyFormContainer = ({
       alert("이메일 형식이 올바르지 않습니다.");
       return -1;
     }
-    // if (applyInfo.email.length === 0) {alert("이"); return -1};
     if (applyInfo.name.length === 0) {
       alert("신청자 성명을 입력해주세요.");
       return -1;
@@ -64,6 +66,7 @@ const ApplyFormContainer = ({
 
     const result = await submit(applyInfo);
     if (result.success === false) return -1;
+    location.reload();
     closeModal();
     console.log(result);
   };
@@ -97,7 +100,6 @@ const ApplyFormContainer = ({
             }
             placeholder="학교/단체명을 입력해주세요."
           />
-          {/* <div>{moment(applyInfo.date).format("YYYY년 MM월 DD일")}</div> */}
           <div className="p-4 flex flex-col gap-4 w-full">
             <div className="flex gap-2 justify-between w-full">
               <div className="flex gap-2 w-[28%]">

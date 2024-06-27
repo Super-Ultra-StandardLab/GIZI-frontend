@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Modal from "@/components/(modal)/Modal";
+import { Provider } from "jotai";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,11 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Modal />
-        <Header />
-        {children}
-        <Footer />
+      <body className="">
+        <Provider>
+          <Modal />
+          <Header />
+          {children}
+          <Footer />
+        </Provider>
       </body>
     </html>
   );

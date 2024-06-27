@@ -6,7 +6,23 @@ interface ModalState {
   visible: boolean;
 }
 
+interface RefreshState {
+  refresh: boolean;
+}
+
+interface LoginState {
+  isLogined: boolean;
+}
+
 export const modalContext = atom<ModalState>({
   component: null,
   visible: false,
+});
+
+export const refreshContext = atom<RefreshState>({
+  refresh: false,
+});
+
+export const loginContext = atom<LoginState>({
+  isLogined: false,
 });

@@ -5,9 +5,30 @@ import { useState } from "react";
 import Slide from "@/components/slider";
 import Arrow from "@/public/assets/down-arrow.svg";
 import { structure } from "@/constant";
+import useModal from "@/hooks/useModal";
+import Floor from "../(modal)/Floor";
 
 const About = () => {
   const [gizi, setGizi] = useState(0);
+  const { openModal } = useModal();
+
+  const onClickOpenForm = ({
+    name,
+    subtitle,
+    content,
+    img,
+  }: {
+    name: string;
+    subtitle: string;
+    content: string;
+    img: string;
+  }) => {
+    openModal({
+      component: (
+        <Floor name={name} subtitle={subtitle} content={content} img={img} />
+      ),
+    });
+  };
 
   return (
     <div className="flex flex-col gap-44 relative">
@@ -81,43 +102,47 @@ const About = () => {
           <div className="mx-auto font-bold text-3xl">공간소개</div>
           <img src="/assets/gizi.webp" alt="GIZI" className="w-[100%]" />
           <div className="flex justify-between gap-10 my-10">
-            <div className="flex flex-col gap-10 bg-green-200 w-[20%]">
-              {["기지#01", "기지#02", "기지#03", "기지#야외공간"].map(
-                (item, index) => (
-                  <div
-                    className={`font-bold cursor-pointer hover:text-[#3b3b3b] ${
-                      gizi === index
-                        ? "text-4xl text-black"
-                        : "text-3xl text-gray-500"
-                    }`}
-                    onClick={() => setGizi(index)}
-                  >
-                    {item}
-                  </div>
-                )
-              )}
+            <div className="w-[15px] h-full bg-[#eeeeee]"></div>
+            <div className="flex flex-col gap-10 w-[20%]">
+              {structure.map((item, index) => (
+                <div
+                  className={`font-bold cursor-pointer hover:text-[#3b3b3b] ${
+                    gizi === index
+                      ? "text-4xl text-black"
+                      : "text-3xl text-gray-500"
+                  }`}
+                  onClick={() => setGizi(index)}
+                >
+                  {item.buildingCode}
+                </div>
+              ))}
             </div>
-            <div className="bg-red-200 w-[80%] flex flex-col gap-5">
-              <div>
-                알로이시오전자기계고등학교의 종합실습실로 쓰던 폐교 공간
+            <div className="w-[80%] flex flex-col gap-5">
+              <div className="text-2xl underline">
+                {structure[gizi].subtitle}
               </div>
-              <div>
-                실습을 위한 밀링머신, 선반 등의 대형 기계들이 놓여있었고,
-                지게차로 자재를 운반할 수 있도록 통로가 넓고 층고가 높은 것이
-                매력적이었던 곳으로 리모델링을 통하여 멋진 공간으로
-                재탄생하였습니다.
-              </div>
-              <div className="flex flex-col gap-4">
-                {structure.map((item, index) => (
-                  <div className="flex gap-5">
-                    <div className="text-3xl">{index + 1}F |</div>
-                    <div className="flex gap-4">
-                      {item.map((floor, findex) => (
-                        <div className="text-2xl font-bold bg-">
-                          {floor.name}
+              <div>{structure[gizi].exp}</div>
+              <div className="flex flex-col gap-5">
+                {structure[gizi].floor.map((story, findex) => (
+                  <div className="flex gap-4 font-bold" key={findex}>
+                    <div>{findex + 1}F</div>
+                    {story.map((room, rindex) => (
+                      <div key={`${findex}-${rindex}`}>
+                        <div
+                          onClick={() =>
+                            onClickOpenForm({
+                              name: room.name,
+                              subtitle: room.subtitle,
+                              content: room.content,
+                              img: room.img,
+                            })
+                          }
+                          className="cursor-pointer hover:text-[#636363]"
+                        >
+                          {room.name}
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>

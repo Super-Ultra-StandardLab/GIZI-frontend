@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="flex flex-col my-[150px]">
+    <div className="flex flex-col mt-[300px] mb-[150px]">
       <div className="h-20 flex justify-center">
         <div className="my-auto text-2xl px-4 border-x-2 border-x-black">
           PARTNERS

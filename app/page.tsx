@@ -15,7 +15,7 @@ export default function Home() {
             <span className="underline decoration-[#FFF27F] decoration-[30px] underline-offset-[-20px]">
               삶의 기본기
             </span>
-            와
+            와{" "}
             <span className="underline decoration-[#B8F1B7] decoration-[30px] underline-offset-[-20px]">
               미래역량
             </span>
@@ -68,10 +68,17 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex justify-between">
-                  <button className="w-[48%] p-7 rounded-3xl text-white bg-[#2F99C8]">
-                    <div className="text-[24px] font-bold">학교단체체험</div>
-                    <div className="">신청하기</div>
-                  </button>
+                  <Link
+                    href="/programs"
+                    className="w-[48%] p-7 rounded-3xl text-white bg-[#2F99C8] flex flex-col"
+                  >
+                    {/* <button className="w-[48%] p-7 rounded-3xl text-white bg-[#2F99C8]"> */}
+                    <div className="text-[24px] font-bold mx-auto">
+                      학교단체체험
+                    </div>
+                    <div className="mx-auto">신청하기</div>
+                    {/* </button> */}
+                  </Link>
                   <PdfBtn />
                 </div>
               </div>

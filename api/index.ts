@@ -2,6 +2,45 @@ import ApplyInfoType from "@/type/applyInfoType.interface";
 import axios from "axios";
 import moment from "moment";
 
+export const login = async ({
+  userId,
+  password,
+}: {
+  userId: string;
+  password: string;
+}) => {
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}auth/admin/login`,
+      {
+        userId,
+        password,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return { success: false, message: "관리자 로그인에 실패하였습니다." };
+  }
+};
+
+export const admin = async () => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}auth/admin`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return { success: false, message: "관리자 인증에 실패했습니다." };
+  }
+};
+
 export const submit = async ({
   programName,
   time,
@@ -37,6 +76,23 @@ export const submit = async ({
   }
 };
 
+export const getSubmit = async () => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}submit`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return { success: false, message: "신청 조회에 실패했습니다." };
+  }
+};
+
 export const getCalendar = async ({
   year,
   month,
@@ -55,30 +111,57 @@ export const getCalendar = async ({
   }
 };
 
-export const getSubmit = async () => {
+// export const getSubmit = async () => {
+//   try {
+//     const response = await axios.get("http://10.150.149.136:8090/user", {
+//       headers: {
+//         Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+//       },
+//     });
+//     return response.data;
+//   } catch (error) {
+//     console.log(error);
+//     return { success: false, message: "유저 정보 호출에 실패하였습니다." };
+//   }
+// };
+
+export const deleteSubmit = async (programId: number) => {
   try {
-    const response = await axios.get("http://10.150.149.136:8090/user", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-      },
-    });
+    const response = await axios.delete(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}submit/${programId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     console.log(error);
-    return { success: false, message: "유저 정보 호출에 실패하였습니다." };
+    return { success: false, message: "신청 삭제에 실패하였습니다." };
   }
 };
 
-export const deleteUser = async () => {
+export const uploadImage = async (image: File) => {
   try {
-    const response = await axios.delete("http://10.150.149.136:8090/user", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-      },
-    });
+    console.log("file", image);
+    const file = new FormData();
+    file.append("file", image);
+    console.log("폼", file);
+
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}upload`,
+      file,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
     return response.data;
   } catch (error) {
-    console.log(error);
-    return { success: false, message: "유저 탈퇴에 실패하였습니다." };
+    console.error(error);
+    return { success: false, message: "이미지 업로드에 실패하였습니다." };
   }
 };
