@@ -1,14 +1,20 @@
 "use client";
 
 import { admin, getSubmit, login } from "@/api";
-import { loginContext } from "@/context";
-import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import Post from "../post";
 
 const Login = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
+  const [isLogin, setIsLogin] = useState<null | string>("");
+
+  useEffect(() => {
+    return () => {
+      const token = localStorage.getItem("access_token");
+      setIsLogin(token);
+    };
+  }, []);
 
   const handleLogin = async () => {
     if (userId === "") return alert("아이디가 입력되지 않았습니다.");
@@ -31,7 +37,7 @@ const Login = () => {
 
   return (
     <div className="w-[45%] flex flex-col justify-center">
-      {localStorage.getItem("access_token") ? (
+      {isLogin ? (
         <Post />
       ) : (
         <div className="w-full h-[500px] flex justify-center rounded-2xl bg-[#ffffff] shadow-md">
