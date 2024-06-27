@@ -68,7 +68,7 @@ const ApplyFormContainer = ({
     if (result.success === false) return -1;
     location.reload();
     closeModal();
-    console.log(result);
+    // console.log(result);
   };
 
   return (

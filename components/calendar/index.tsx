@@ -34,9 +34,9 @@ const ReactCalender = () => {
   ]);
 
   useEffect(() => {
-    return () => {
-      handleCalendar();
-    };
+    // return () => {
+    handleCalendar();
+    // };
   }, []);
 
   const handleCalendar = async () => {
@@ -46,7 +46,6 @@ const ReactCalender = () => {
     });
     if (result.success === false) return -1;
     setSchedule(result);
-    console.log(result);
   };
 
   const onClickOpenForm = ({
