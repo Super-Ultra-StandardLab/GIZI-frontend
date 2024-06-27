@@ -38,7 +38,12 @@ const Footer = () => {
               path: "https://www.doosan.com/kr",
             },
           ].map((item) => (
-            <a target="_blank" href={item.path} className="mx-auto">
+            <a
+              target="_blank"
+              href={item.path}
+              className="mx-auto"
+              key={item.path}
+            >
               <img src={item.src} alt={item.path} />
             </a>
           ))}

@@ -24,7 +24,7 @@ const Slide = () => {
         "/assets/about3.webp",
         "/assets/about4.webp",
       ].map((item, index) => (
-        <div className="w-screen h-[90vh] overflow-hidden">
+        <div className="w-screen h-[90vh] overflow-hidden" key={index}>
           <img src={item} alt={`img-${index}`} className="w-[100%]" />
         </div>
       ))}

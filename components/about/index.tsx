@@ -106,6 +106,7 @@ const About = () => {
             <div className="flex flex-col gap-10 w-[20%]">
               {structure.map((item, index) => (
                 <div
+                  key={`key-${index}`}
                   className={`font-bold cursor-pointer hover:text-[#3b3b3b] ${
                     gizi === index
                       ? "text-4xl text-black"
