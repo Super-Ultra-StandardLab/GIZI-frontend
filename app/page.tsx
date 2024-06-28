@@ -39,8 +39,8 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="w-[100%] h-[35vw] bg-white p-10 border-2 border-[#E6E6E6] rounded-3xl justify-between absolute flex flex-col gap-8 text-xl">
-                <div className="mt-10">
+              <div className="w-[100%] h-[35vw] bg-white p-10 py-10 border-2 border-[#E6E6E6] rounded-3xl justify-between absolute flex flex-col gap-8 text-xl">
+                <div className="mt-10 text-lg">
                   단체 체험 프로그램은 초·중·고등학교 진로체험, 중학교
                   자유학년제 및 고등학교 체험활동 등을 통해 진로 탐색을
                   구체화하고 자신의 역량과 소질을 찾을 수 있도록 구성되어
@@ -119,8 +119,8 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="w-[100%] h-[35vw] bg-white p-10 pb-10 border-2 border-[#E6E6E6] rounded-3xl absolute flex flex-col justify-between gap-8 text-xl">
-                <div className="mt-10">
+              <div className="w-[100%] h-[35vw] bg-white p-10 py-10 border-2 border-[#E6E6E6] rounded-3xl absolute flex flex-col justify-between gap-8 text-xl">
+                <div className="mt-10 text-lg">
                   통합방과후학교 프로그램은 단발성이 아닌 연속적이고 체계적인
                   단계별 구성으로 학생들의 지속적인 성장에 초점을 둔
                   프로그램입니다.
