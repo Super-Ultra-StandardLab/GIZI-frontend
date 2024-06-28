@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="w-screen flex flex-col gap-20">
       <div className="w-[100%] h-[50vw] flex justify-center">
-        <div className="w-[75%] h-[80%] flex justify-between my-auto">
+        <div className="w-[80%] h-[80%] flex justify-between my-auto">
           <div className="text-6xl leading-normal font-bold my-auto">
             알로이시오기지1968은
             <br />
@@ -29,7 +29,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex justify-center">
-        <div className="w-[75%] flex justify-between">
+        <div className="w-[80%] flex justify-between">
           <div className="w-[48%] flex flex-col gap-[20vw]">
             <div className="w-[100%] h-[400px] relative">
               <div className="w-[100%] flex justify-center mb-[-2vw]">
@@ -46,7 +46,7 @@ export default function Home() {
                   구체화하고 자신의 역량과 소질을 찾을 수 있도록 구성되어
                   있습니다.
                 </div>
-                <div className="flex flex-col gap-4 p-10">
+                <div className="flex flex-col gap-4 p-5">
                   <div className="flex">
                     <div className="rounded-full bg-[#f7f7f7] py-2 px-4 font-bold">
                       대상
@@ -87,25 +87,25 @@ export default function Home() {
                 이용시 유의사항
               </div>
               <div className="flex gap-2">
-                <Image src={InfoIcon} alt="INFO_ICON" />
+                <Image src={InfoIcon} alt="INFO_ICON" className="w-[1vw]" />
                 <div>
                   기본프로그램 5개 운영, 인원수에 따라 최대 9개까지 프로그램
                   추가 개설
                 </div>
               </div>
               <div className="flex gap-2">
-                <Image src={InfoIcon} alt="INFO_ICON" />
+                <Image src={InfoIcon} alt="INFO_ICON" className="w-[1vw]" />
                 <div>최소 50명 최대 160명 까지 체험 가능 </div>
               </div>
               <div className="flex gap-2">
-                <Image src={InfoIcon} alt="INFO_ICON" />
+                <Image src={InfoIcon} alt="INFO_ICON" className="w-[1vw]" />
                 <div>
                   전일제는 점심식사 장소 제공(잔반과 쓰레기는 학교 또는 업체에서
                   처리), 반일제는 점심식사 불가
                 </div>
               </div>
               <div className="flex gap-2">
-                <Image src={InfoIcon} alt="INFO_ICON" />
+                <Image src={InfoIcon} alt="INFO_ICON" className="w-[1vw]" />
                 <div>교통편은 학교에서 마련</div>
               </div>
             </div>
@@ -119,13 +119,13 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="w-[100%] h-[35vw] bg-white p-10 border-2 border-[#E6E6E6] rounded-3xl absolute flex flex-col justify-between gap-8 text-xl">
+              <div className="w-[100%] h-[35vw] bg-white p-10 pb-10 border-2 border-[#E6E6E6] rounded-3xl absolute flex flex-col justify-between gap-8 text-xl">
                 <div className="mt-10">
                   통합방과후학교 프로그램은 단발성이 아닌 연속적이고 체계적인
                   단계별 구성으로 학생들의 지속적인 성장에 초점을 둔
                   프로그램입니다.
                 </div>
-                <div className="flex flex-col gap-4 p-10">
+                <div className="flex flex-col gap-4 p-5">
                   <div className="flex">
                     <div className="rounded-full bg-[#f7f7f7] py-2 px-4 font-bold">
                       대상
@@ -169,15 +169,15 @@ export default function Home() {
                 이용시 유의사항
               </div>
               <div className="flex gap-2">
-                <Image src={InfoIcon} alt="INFO_ICON" />
+                <Image src={InfoIcon} alt="INFO_ICON" className="w-[1vw]" />
                 <div>모집정원의 50%미만 신청시 폐강될 수 있습니다.</div>
               </div>
               <div className="flex gap-2">
-                <Image src={InfoIcon} alt="INFO_ICON" />
+                <Image src={InfoIcon} alt="INFO_ICON" className="w-[1vw]" />
                 <div>협약 학교대상 셔틀버스를 운행함</div>
               </div>
               <div className="flex gap-2">
-                <Image src={InfoIcon} alt="INFO_ICON" />
+                <Image src={InfoIcon} alt="INFO_ICON" className="w-[1vw]" />
                 <div>
                   셔틀버스 노선은 별도공지 (감천초, 구평초, 남부민초, 서천초,
                   송도초, 아미초, 알로이시오초, 옥천초, 천마초, 토성초)
