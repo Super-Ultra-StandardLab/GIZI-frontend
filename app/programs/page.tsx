@@ -3,20 +3,20 @@ import Link from "next/link";
 
 const Page = () => {
   return (
-    <div className="w-screen h-[500vh] flex justify-center text-2xl font-bold overflow-visible">
-      <div className="w-[55%] py-32 flex flex-col gap-64">
-        <div className="flex flex-col justify-center mb-[-200px]">
+    <div className="w-screen h-[250vw] flex justify-center text-2xl font-bold overflow-visible">
+      <div className="w-[55%] py-32 flex flex-col gap-[2vw]">
+        <div className="flex flex-col justify-center">
           <div className="text-center text-4xl">프로그램 신청 및 예약 확인</div>
         </div>
         <div className="relative">
-          <div className="bg-[#FFF27F] w-[500px] h-[300px] rounded-[50%] mx-auto flex justify-center">
+          <div className="bg-[#FFF27F] w-[30vw] h-[20vw] rounded-[50%] mx-auto flex justify-center mb-[-12vw]">
             <div className="mt-16 text-4xl">단체체험 프로그램</div>
           </div>
-          <div className="border-2 border-[#E6E6E6] rounded-3xl w-[100%]  p-10 bg-white absolute mt-[-15%]">
+          <div className="w-full h-[30vw] rounded-3xl border-2 border-[#E6E6E6] bg-white p-10 absolute">
             <div className="text-[#037AE7]">
               ※학생 수와 상황에 따라 프로그램이 변경될 수 있습니다.
             </div>
-            <div className="flex flex-col gap-10 p-10 w-[90%]">
+            <div className="flex flex-col gap-10 p-5 w-full">
               <div className="flex justify-between gap-4">
                 <div className="font-extrabold w-[20%]">대상</div>
                 <div className="w-[80%]">초(3~6학년)·중·고 학교단체</div>
@@ -45,7 +45,7 @@ const Page = () => {
               </div>
             </div>
           </div>
-          <div className="mt-[400px] flex gap-8 z-50">
+          <div className="mt-[33vw] flex gap-8 z-50">
             <a href="groupinfo.pdf" download>
               <button className="px-10 py-8 bg-[#EEF7FD] rounded-3xl">
                 프로그램 다운로드
@@ -58,6 +58,29 @@ const Page = () => {
             </a>
           </div>
         </div>
+        <div className="flex flex-col justify-center gap-16 mt-40 text-xl mb-[5vw]">
+          <div className="rounded-3xl border-2 border-[#E1E1E1] p-10 pb-20 bg-[#F9F9F9]">
+            <div className="w-full h-full flex flex-col gap-6">
+              <div className="px-10 py-4 rounded-full bg-[#E7E7E7] mr-auto">
+                이용시 유의사항
+              </div>
+              <div>
+                ① 기본프로그램 5개 운영되며, 학교 인원수가 많은 경우는 인원수에
+                따라 추가로 최대 9개까지 프로그램 편성하여 운영됩니다.
+              </div>
+              <div>
+                ② 전일제는 학생 1인당 2개(오전1, 오후1)의 프로그램, 반일제는
+                1개의 프로그램을 체험합니다.
+              </div>
+              <div>
+                ③ 전일제는 점심식사 장소를 제공해드립니다. (잔반과 쓰레기는 학교
+                또는 도시락 업체에서 처리, 반일제는 점심식사 장소제공 불가)
+              </div>
+              <div>④ 세부시간 및 프로그램 등은 협의 후 및 조정 가능</div>
+            </div>
+          </div>
+        </div>
+
         <div className="h-[500px] w-full">
           <table className="w-full border-collapse text-center border-4 rounded-3xl overflow-hidden bg-white">
             <thead className="bg-cyan-500">
@@ -120,87 +143,58 @@ const Page = () => {
               동일하게 유지하였습니다.)
             </div>
           </div>
-          <div className="h-[70vh] flex flex-col justify-center gap-16 mt-40">
-            <div className="h-[70%] rounded-3xl border-2 border-[#E1E1E1] p-10 bg-[#F9F9F9]">
-              <div className="w-full h-full flex flex-col gap-6">
-                <div className="px-10 py-4 rounded-full bg-[#E7E7E7] mr-auto">
-                  이용시 유의사항
-                </div>
-                <div>
-                  ① 기본프로그램 5개 운영되며, 학교 인원수가 많은 경우는
-                  인원수에 따라 추가로 최대 9개까지 프로그램 편성하여
-                  운영됩니다.
-                </div>
-                <div>
-                  ② 전일제는 학생 1인당 2개(오전1, 오후1)의 프로그램, 반일제는
-                  1개의 프로그램을 체험합니다.
-                </div>
-                <div>
-                  ③ 전일제는 점심식사 장소를 제공해드립니다. (잔반과 쓰레기는
-                  학교 또는 도시락 업체에서 처리, 반일제는 점심식사 장소제공
-                  불가)
-                </div>
-                <div>④ 세부시간 및 프로그램 등은 협의 후 및 조정 가능</div>
+        </div>
+        <div className="h-[70vh] flex flex-col justify-center gap-16 mt-40 mb-72">
+          <div className="rounded-3xl border-2 border-[#E1E1E1] p-10 bg-[#F9F9F9]">
+            <div className="w-full h-full flex flex-col gap-6 text-xl">
+              <div className="px-10 py-4 rounded-full bg-[#FF3B30] text-2xl text-white mr-auto">
+                신청 전 필독사항
               </div>
-            </div>
-            {/* <div className="flex justify-center">
-              <button className="bg-[#FFF27F] px-14 py-5 rounded-2xl font-extrabold">
-                신청접수
-              </button>
-            </div> */}
-          </div>
-          <div className="h-[70vh] flex flex-col justify-center gap-16 mt-40 mb-72">
-            <div className="rounded-3xl border-2 border-[#E1E1E1] p-10 bg-[#F9F9F9]">
-              <div className="w-full h-full flex flex-col gap-6">
-                <div className="px-10 py-4 rounded-full bg-[#FF3B30] text-white mr-auto">
-                  신청 전 필독사항
-                </div>
-                <div>
-                  ① 예약취소는 30일 전까지 가능합니다. (※체험일로부터 30일 이내
-                  취소 시 전체체험비용의 50% 위약금 발생)
-                </div>
-                <div>
-                  ② ‘단체체험 취소 양식서’로만 예약취소를 받습니다. (담당자와
-                  연락, 메일전송)
-                </div>
-                <div>③ 청약서는 최소 1달 전까진 전송해주세요.</div>
-                <div>
-                  ④ 프로그램 반 평성표는 최소 2주 전까지 전송해주세요. (※반드시
-                  “각 프로그램 정원 이하”로 편성, 초과 불과)
-                </div>
-                <div className="text-[#FF3B30]">
-                  ⑤ 하루전 또는 당일 결석자 취소는 불가능합니다.
-                </div>
-                <div>
-                  ⑥ 대형버스를 이용하는 학교나 단체는 ‘알로이시오힐링센터’
-                  앞(SK주유소 뒤편)에서 하차하시면 됩니다. (※시내버스 이용:
-                  ‘알로이시오기념병원정류장’에서 하차)
-                </div>
-                <div>
-                  ⑦ 학생들은 활동에 편한 복장으로 참여할 수 있도록 협조
-                  부탁드립니다.
-                </div>
-                <div>
-                  ⑧ 통합반 학생이나 휠체어 등이 필요한 학생이 있으시면 사전에
-                  알려주세요.
-                </div>
-                <div>⑨ 응급상황 발생 시 인솔교사의 지도가 필요합니다.</div>
-                <div className="text-[#FF3B30]">
-                  ⑩ 기지 내 보건인력은 없으며, 몸이 불편한 학생이 잠시 쉴 수
-                  있는 공간은 준비되어 있습니다.
-                </div>
-                <div>
-                  ⑪ 활동 시 사진 촬영이 있습니다. 홍보용으로 사용하지는
-                  않습니다. 촬영동의서가 필요하면 양식을 보내드리겠습니다.
-                </div>
+              <div>
+                ① 예약취소는 30일 전까지 가능합니다. (※체험일로부터 30일 이내
+                취소 시 전체체험비용의 50% 위약금 발생)
+              </div>
+              <div>
+                ② ‘단체체험 취소 양식서’로만 예약취소를 받습니다. (담당자와
+                연락, 메일전송)
+              </div>
+              <div>③ 청약서는 최소 1달 전까진 전송해주세요.</div>
+              <div>
+                ④ 프로그램 반 평성표는 최소 2주 전까지 전송해주세요. (※반드시
+                “각 프로그램 정원 이하”로 편성, 초과 불과)
+              </div>
+              <div className="text-[#FF3B30]">
+                ⑤ 하루전 또는 당일 결석자 취소는 불가능합니다.
+              </div>
+              <div>
+                ⑥ 대형버스를 이용하는 학교나 단체는 ‘알로이시오힐링센터’
+                앞(SK주유소 뒤편)에서 하차하시면 됩니다. (※시내버스 이용:
+                ‘알로이시오기념병원정류장’에서 하차)
+              </div>
+              <div>
+                ⑦ 학생들은 활동에 편한 복장으로 참여할 수 있도록 협조
+                부탁드립니다.
+              </div>
+              <div>
+                ⑧ 통합반 학생이나 휠체어 등이 필요한 학생이 있으시면 사전에
+                알려주세요.
+              </div>
+              <div>⑨ 응급상황 발생 시 인솔교사의 지도가 필요합니다.</div>
+              <div className="text-[#FF3B30]">
+                ⑩ 기지 내 보건인력은 없으며, 몸이 불편한 학생이 잠시 쉴 수 있는
+                공간은 준비되어 있습니다.
+              </div>
+              <div>
+                ⑪ 활동 시 사진 촬영이 있습니다. 홍보용으로 사용하지는 않습니다.
+                촬영동의서가 필요하면 양식을 보내드리겠습니다.
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center">
-            <div className="text-center text-4xl">프로그램 신청</div>
-            <div className="text-center text-lg">
-              [예약가능]표시된 시간대를 직접 클릭하여 신청
-            </div>
+        </div>
+        <div className="flex flex-col justify-center">
+          <div className="text-center text-4xl">프로그램 신청</div>
+          <div className="text-center text-lg">
+            [예약가능]표시된 시간대를 직접 클릭하여 신청
           </div>
           <ReactCalender />
         </div>

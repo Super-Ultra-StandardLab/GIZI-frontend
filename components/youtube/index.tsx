@@ -7,8 +7,9 @@ const YouTubePage = () => {
   const videoId = "K_018wnNA-c";
 
   const opts = {
-    height: "300",
-    width: "535",
+    style: { width: "50%", height: "40vw" },
+    // height: window.screen.height * 0.4,
+    // width: window.screen.width * 0.35,
     playerVars: {
       autoplay: 1,
       rel: 0,

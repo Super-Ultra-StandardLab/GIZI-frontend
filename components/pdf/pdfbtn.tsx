@@ -1,6 +1,6 @@
 "use client";
 
-const PdfBtn = () => {
+const PdfBtn = ({ content }: { content: string }) => {
   const openPdf = () => {
     window.open("/info.pdf", "_blank");
   };
@@ -10,8 +10,8 @@ const PdfBtn = () => {
       className="w-[48%] p-7 rounded-3xl bg-[#EEF7FD]"
       onClick={() => openPdf()}
     >
-      <div className="text-[24px] font-bold">단체체험 안내문</div>
-      <div className="">다운로드</div>
+      <div className="text-2xl font-bold">{content} 안내문</div>
+      <div className="text-xl">다운로드</div>
     </button>
   );
 };

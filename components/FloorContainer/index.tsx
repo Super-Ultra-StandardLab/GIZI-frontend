@@ -14,12 +14,12 @@ const FloorContainer = ({
   return (
     <div className="w-screen h-screen bg-[#a7a7a75b] fixed flex justify-center">
       <div
-        className="w-[50vw] h-[60vh] my-auto bg-white rounded-lg p-[5vh] flex flex-col gap-8"
+        className="w-[50vw] h-[35vw] my-auto bg-white rounded-lg p-20 flex flex-col gap-8"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="text-4xl font-bold">{name}</div>
-        <div>{subtitle}</div>
-        <div>{content}</div>
+        <div className="text-5xl font-bold">{name}</div>
+        <div className="text-xl">{subtitle}</div>
+        <div className="text-xl">{content}</div>
       </div>
     </div>
   );

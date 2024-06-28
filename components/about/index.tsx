@@ -32,29 +32,19 @@ const About = () => {
 
   return (
     <div className="flex flex-col gap-44 relative">
-      <Image
-        src={Arrow}
-        alt="DOWN_ARROW"
-        height="80"
-        className="absolute z-20 top-[75vh] left-[50vw] cursor-pointer"
-        onClick={() =>
-          window.scroll({ top: screen.height * 0.82, behavior: "smooth" })
-        }
-      />
-      <div className="w-screen h-[90vh] bg-[#64646479] absolute z-10"></div>
       <Slide />
       <div className="w-screen flex justify-center">
-        <div className="flex flex-col w-[80%] gap-20">
-          <div className="h-[200px] flex gap-5">
+        <div className="flex flex-col w-[80%] gap-[3vw]">
+          <div className="h-[12vw] flex gap-5">
             <div className="w-[10px] h-[100%] bg-[#E7E7E7]" />
             <div className="w-[45%] flex flex-col justify-between">
-              <div className="text-5xl font-extrabold underline decoration-[#FFF27F] decoration-[30px] underline-offset-[-20px]">
+              <div className="text-5xl font-extrabold underline decoration-[#FFF27F] decoration-[1.8rem] underline-offset-[-1.4rem]">
                 삶의 기본기
               </div>
               <div className="text-3xl font-bold">
                 이곳은 사람들의 삶에 진정 필요한 것을 다루는 곳입니다.
               </div>
-              <div>
+              <div className="text-lg">
                 스스로의 생각을 키우고, 삶의 기본기를 익히고 잃어버린 감각을
                 열어봅니다. 함께 떠들고 나누는 것만큼 빈둥거리고 침묵하는 것도
                 중요합니다. 아이도 어른도 기지에 오면 ‘삶의 기본’이 무엇인지
@@ -62,9 +52,9 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="h-[200px] flex gap-5">
+          <div className="h-[12vw] flex gap-5">
             <div className="w-[45%] flex flex-col justify-between ml-auto">
-              <div className="text-5xl font-extrabold underline decoration-[#B8F1B7] decoration-[30px] underline-offset-[-20px]">
+              <div className="text-5xl font-extrabold underline decoration-[#B8F1B7] decoration-[1.8rem] underline-offset-[-1.4rem]">
                 공동체
               </div>
               <div className="text-3xl font-bold">
@@ -78,17 +68,17 @@ const About = () => {
             </div>
             <div className="w-[10px] h-[100%] bg-[#E7E7E7]" />
           </div>
-          <div className="h-[200px] flex gap-5">
+          <div className="h-[12vw] flex gap-5">
             <div className="w-[10px] h-[100%] bg-[#E7E7E7]" />
             <div className="w-[45%] flex flex-col justify-between">
-              <div className="text-5xl font-extrabold underline decoration-[#FFF27F] decoration-[30px] underline-offset-[-20px]">
+              <div className="text-5xl font-extrabold underline decoration-[#FFF27F] decoration-[1.8rem] underline-offset-[-1.4rem]">
                 기지(basecamp)
               </div>
               <div className="text-3xl font-bold">
                 망망대해의 피난처이자 전진 기지처럼 빠른 세상의 변화에도 버팀목
                 같은 장소인 곳이 ‘기지’입니다.{" "}
               </div>
-              <div>
+              <div className="text-lg">
                 폐교된 학교를 고쳐서 다시 썼습니다. 콘크리트를 걷고 흙을 살려
                 텃밭을 만들었습니다. 공동체, 열린 환경, 즐거운 경험, 맨발 활보,
                 도시속 자연, 침묵들을 생각합니다.
@@ -103,7 +93,7 @@ const About = () => {
           <img src="/assets/gizi.webp" alt="GIZI" className="w-[100%]" />
           <div className="flex justify-between gap-10 my-10">
             <div className="w-[15px] h-full bg-[#eeeeee]"></div>
-            <div className="flex flex-col gap-10 w-[20%]">
+            <div className="flex flex-col gap-14 w-[20%]">
               {structure.map((item, index) => (
                 <div
                   key={`key-${index}`}

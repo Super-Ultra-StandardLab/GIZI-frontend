@@ -67,7 +67,7 @@ const ReactCalender = () => {
   const onClickOpenInfo = ({ info }: { info: ApplyInfoType }) => {
     if (!localStorage.getItem("access_token")) {
       alert(
-        "신청내역 조회는 관리자만 가능합니다. \n [예약가능]으로 표시된 다른 일정을 선택해주세요."
+        "신청내역 조회는 관리자만 가능합니다. \n 단체명이 아닌 종일/오전/오후 로 표시된 다른 일정을 선택해주세요."
       );
       return -1;
     }
@@ -99,8 +99,10 @@ const ReactCalender = () => {
           );
 
           return (
-            <div className="text-xs">
+            <div className="text-xs w-full">
               {!(
+                Number(moment(date).format("YYYYMMDD")) <
+                  Number(moment(new Date()).format("YYYYMMDD")) ||
                 moment(date).format("dddd") === "Saturday" ||
                 moment(date).format("dddd") === "Sunday"
               ) && (
@@ -127,6 +129,7 @@ const ReactCalender = () => {
                           },
                         })
                       }
+                      className="text-left hover:text-[#777]"
                     >
                       {
                         daySchedules.find((i) => i.time.includes("allday"))
@@ -152,9 +155,9 @@ const ReactCalender = () => {
                             position: { x: e.pageX, y: e.pageY },
                           })
                         }
-                        className="hover:text-[#777]"
+                        className="text-left hover:text-[#777]"
                       >
-                        [예약가능] 종일
+                        종일
                       </div>
                     )
                   )}
@@ -180,12 +183,12 @@ const ReactCalender = () => {
                           },
                         })
                       }
+                      className="text-left hover:text-[#777]"
                     >
                       {
                         daySchedules.find((i) => i.time.includes("morning"))
                           ?.organization
                       }
-                      (오전)
                     </div>
                   ) : (
                     daySchedules.findIndex((i) => i.time.includes("allday")) ===
@@ -201,9 +204,9 @@ const ReactCalender = () => {
                             position: { x: e.pageX, y: e.pageY },
                           })
                         }
-                        className="hover:text-[#777]"
+                        className="text-left hover:text-[#777]"
                       >
-                        [예약가능] 오전
+                        오전
                       </div>
                     )
                   )}
@@ -230,12 +233,12 @@ const ReactCalender = () => {
                           },
                         })
                       }
+                      className="text-left hover:text-[#777]"
                     >
                       {
                         daySchedules.find((i) => i.time.includes("afternoon"))
                           ?.organization
                       }
-                      (오후)
                     </div>
                   ) : (
                     daySchedules.findIndex((i) => i.time.includes("allday")) ===
@@ -251,9 +254,9 @@ const ReactCalender = () => {
                             position: { x: e.pageX, y: e.pageY },
                           })
                         }
-                        className="hover:text-[#777]"
+                        className="text-left hover:text-[#777]"
                       >
-                        [예약가능] 오후
+                        오후
                       </div>
                     )
                   )}

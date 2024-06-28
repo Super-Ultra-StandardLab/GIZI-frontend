@@ -46,7 +46,7 @@ const Login = () => {
       {isLogin ? (
         <Post />
       ) : (
-        <div className="w-full h-[500px] flex justify-center rounded-2xl bg-[#ffffff] shadow-md">
+        <div className="w-full h-[30vw] flex justify-center rounded-2xl bg-[#ffffff] shadow-md">
           <form
             className="w-[70%] h-[70%] my-auto flex flex-col gap-8"
             onSubmit={(e) => e.preventDefault()}

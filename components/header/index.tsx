@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -16,7 +17,6 @@ const Header = () => {
   const handleScroll = () => {
     if (window.scrollY >= 50) {
       setScroll(true);
-      // console.log(scroll);
     } else {
       setScroll(false);
     }
@@ -24,12 +24,18 @@ const Header = () => {
 
   return (
     <div
-      className={`w-screen h-[9vh] flex justify-between px-32 fixed z-50 transition-all duration-500 ${
+      className={`w-screen h-[4vw] flex justify-between px-32 fixed z-50 transition-all duration-500 ${
         scroll ? "bg-white shadow" : ""
       }`}
     >
       <Link href="/" className="my-auto">
-        <img src="/assets/logo.png" className="h-4/5 cursor-pointer" />
+        <Image
+          src="/assets/logo.png"
+          width={200}
+          height={200}
+          className="w-72 cursor-pointer"
+          alt="GIZI_LOGO"
+        />
       </Link>
       <div className="flex gap-16">
         {[

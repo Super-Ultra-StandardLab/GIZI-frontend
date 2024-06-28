@@ -7,38 +7,39 @@ import PdfBtn from "@/components/pdf/pdfbtn";
 export default function Home() {
   return (
     <div className="w-screen flex flex-col gap-20">
-      <div className="w-[100%] h-[700px] flex justify-center bg-blue-100">
-        <div className="w-[70%] h-[80%] flex justify-between my-auto">
-          <div className="text-[58px] font-bold my-auto">
+      <div className="w-[100%] h-[50vw] flex justify-center">
+        <div className="w-[75%] h-[80%] flex justify-between my-auto">
+          <div className="text-6xl leading-normal font-bold my-auto">
             알로이시오기지1968은
             <br />
-            <span className="underline decoration-[#FFF27F] decoration-[30px] underline-offset-[-20px]">
+            <span className="underline decoration-[#FFF27F] decoration-[1.8rem] underline-offset-[-1.4rem]">
               삶의 기본기
             </span>
             와{" "}
-            <span className="underline decoration-[#B8F1B7] decoration-[30px] underline-offset-[-20px]">
+            <span className="underline decoration-[rgb(184,241,183)] decoration-[1.8rem] underline-offset-[-1.4rem]">
               미래역량
             </span>
             을
             <br /> 키우는 미래교육센터입니다.
           </div>
-          <div className="w-[40%] my-auto">
-            <YouTubePage />
+          <div className="w-[35vw] h-[20vw] my-auto">
+            {/* <YouTubePage /> */}
+            <video controls autoPlay loop className="" src="/gizi.mp4" />
           </div>
         </div>
       </div>
       <div className="flex justify-center">
         <div className="w-[75%] flex justify-between">
-          <div className="w-[48%] flex flex-col gap-72">
+          <div className="w-[48%] flex flex-col gap-[20vw]">
             <div className="w-[100%] h-[400px] relative">
-              <div className="w-[100%] flex justify-center mb-[-30px]">
-                <div className="w-[50%] h-[70px] bg-[#FFF27F] rounded-full flex flex-col justify-center z-20">
-                  <div className="text-center text-[30px] font-bold">
+              <div className="w-[100%] flex justify-center mb-[-2vw]">
+                <div className="w-[20vw] h-[5vw] bg-[#FFF27F] rounded-full flex flex-col justify-center z-20">
+                  <div className="text-center text-3xl font-bold">
                     단체체험 프로그램
                   </div>
                 </div>
               </div>
-              <div className="w-[100%] h-[620px] bg-white p-10 border-2 border-[#E6E6E6] rounded-3xl absolute flex flex-col gap-8 text-xl">
+              <div className="w-[100%] h-[35vw] bg-white p-10 border-2 border-[#E6E6E6] rounded-3xl justify-between absolute flex flex-col gap-8 text-xl">
                 <div className="mt-10">
                   단체 체험 프로그램은 초·중·고등학교 진로체험, 중학교
                   자유학년제 및 고등학교 체험활동 등을 통해 진로 탐색을
@@ -72,14 +73,12 @@ export default function Home() {
                     href="/programs"
                     className="w-[48%] p-7 rounded-3xl text-white bg-[#2F99C8] flex flex-col"
                   >
-                    {/* <button className="w-[48%] p-7 rounded-3xl text-white bg-[#2F99C8]"> */}
-                    <div className="text-[24px] font-bold mx-auto">
+                    <div className="text-2xl font-bold mx-auto">
                       학교단체체험
                     </div>
-                    <div className="mx-auto">신청하기</div>
-                    {/* </button> */}
+                    <div className="text-xl mx-auto">신청하기</div>
                   </Link>
-                  <PdfBtn />
+                  <PdfBtn content="단체체험" />
                 </div>
               </div>
             </div>
@@ -111,16 +110,16 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-[48%] flex flex-col gap-72">
+          <div className="w-[48%] flex flex-col gap-[20vw]">
             <div className="w-[100%] h-[400px] relative">
-              <div className="w-[100%] flex justify-center mb-[-30px]">
-                <div className="w-[50%] h-[70px] bg-[#B8F1B7] rounded-full flex flex-col justify-center z-20">
-                  <div className="text-center text-[30px] font-bold">
+              <div className="w-[100%] flex justify-center mb-[-2vw]">
+                <div className="w-[20vw] h-[5vw] bg-[#B8F1B7] rounded-full flex flex-col justify-center z-20">
+                  <div className="text-center text-3xl font-bold">
                     방과후학교 프로그램
                   </div>
                 </div>
               </div>
-              <div className="w-[100%] h-[620px] bg-white p-10 border-2 border-[#E6E6E6] rounded-3xl absolute flex flex-col gap-8 text-xl justify-between ">
+              <div className="w-[100%] h-[35vw] bg-white p-10 border-2 border-[#E6E6E6] rounded-3xl absolute flex flex-col justify-between gap-8 text-xl">
                 <div className="mt-10">
                   통합방과후학교 프로그램은 단발성이 아닌 연속적이고 체계적인
                   단계별 구성으로 학생들의 지속적인 성장에 초점을 둔
@@ -144,21 +143,24 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex">
-                    <div className="rounded-full bg-[#f7f7f7] px-4 font-bold w-[160px] flex flex-col justify-center">
-                      <div className="text-center">신청방법</div>
+                    <div className="rounded-full flex justify-center w-[32%] bg-[#f7f7f7] py-2 px-4 font-bold">
+                      <div className="my-auto">신청방법</div>
                     </div>
-                    <div className="mx-4">
+                    <div className="my-auto mx-4">
                       온라인 접수, 선착순 마감 (학교별로 일괄신청시
                       통합방과후학교 담당자에게 문의)
                     </div>
                   </div>
                 </div>
                 <div className="flex justify-between">
-                  <button className="w-[48%] p-7 rounded-3xl text-white bg-[#2F99C8]">
-                    <div className="text-[24px] font-bold">방과후학교</div>
-                    <div className="">신청하기</div>
-                  </button>
-                  <PdfBtn />
+                  <Link
+                    href="/programs"
+                    className="w-[48%] p-7 rounded-3xl text-white bg-[#2F99C8] flex flex-col"
+                  >
+                    <div className="text-2xl font-bold mx-auto">방과후학교</div>
+                    <div className="mx-auto">신청하기</div>
+                  </Link>
+                  <PdfBtn content="방과후학교" />
                 </div>
               </div>
             </div>
