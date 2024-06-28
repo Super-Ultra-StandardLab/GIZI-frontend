@@ -143,7 +143,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex">
-                    <div className="rounded-full flex justify-center w-[32%] bg-[#f7f7f7] py-2 px-4 font-bold">
+                    <div className="rounded-full flex justify-center w-[20%] h-[80%] bg-[#f7f7f7] p-2 font-bold">
                       <div className="my-auto">신청방법</div>
                     </div>
                     <div className="my-auto mx-4">
