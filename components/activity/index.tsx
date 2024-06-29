@@ -1,4 +1,43 @@
-export default function Activity() {
+"use client";
+
+import { getPost } from "@/api";
+import useModal from "@/hooks/useModal";
+import PostType from "@/type/postType.interface";
+import { useEffect, useState } from "react";
+import Post from "../(modal)/Post";
+
+const Activity = () => {
+  const [postList, setPostList] = useState([
+    {
+      boardId: 0,
+      type: "",
+      thumbnail: "",
+      title: "",
+      detail: "",
+      createdAt: "",
+    },
+  ]);
+  const { openModal } = useModal();
+
+  useEffect(() => {
+    handlePostList();
+  }, []);
+
+  const onClickOpenPost = (post: PostType) => {
+    openModal({
+      component: <Post post={post} />,
+    });
+  };
+
+  const handlePostList = async () => {
+    const result = await getPost();
+    if (result.success === false) {
+      alert("게시물 조회에 실패하였습니다.");
+      return -1;
+    }
+    setPostList(result);
+  };
+
   return (
     <div className="w-screen flex flex-col gap-20">
       <div className="w-[100%] h-[40vw] flex justify-center bg-[#d1edff]">
@@ -26,73 +65,34 @@ export default function Activity() {
         <div className="w-[70%]">
           <div className="p-4">
             <div className="grid grid-cols-3 gap-4">
-              <div className="w-auto bg-white px-8 border-4 border-blue-200 rounded-xl">
-                <p className="font-bold text-lg my-4">
-                  신앙학교 프로그램 지원 신청 안내
-                </p>
-                <p className="h-20 scrollbar-hide text-[#686868]">
-                  알로이시오기지1968은 진로체험, 융합활동 등을 통해 진로탐색을
-                  구체화하고 자신의 역량과 소질을 찾는 다양한 교육활동 체험이
-                  이루어지는 곳입니다.
-                  {/* 기지에서는 2024년도 신앙학교 프로그램를
-                  개설하여 각 본당 주일학교에 지원하고자 하오니 많은 참여
-                  바랍니다. */}
-                </p>
-                <div className="w-[100%] flex justify-center p-4">
-                  <a
-                    href="https://gizi1968.kr/wp-content/uploads/2024/05/2024학년도-신앙학교-프로그램-안내문.pdf"
-                    target="_blank"
-                    className="w-20 h-8 rounded-lg text-sm flex items-center justify-center"
+              {postList.slice(postList.length - 3).map((item, index) => (
+                <div
+                  key={item.boardId}
+                  className="w-auto bg-white px-8 border-4 border-blue-200 rounded-xl"
+                >
+                  <p className="font-bold text-lg my-4">{item.title}</p>
+                  <p className="h-20 scrollbar-hide text-[#686868] text-sm">
+                    {item.detail.length > 80
+                      ? item.detail.slice(0, 80) + "..."
+                      : item.detail}
+                  </p>
+                  <div
+                    className="w-[100%] flex justify-center p-4 cursor-pointer font-bold hover:text-[#616161]"
+                    onClick={() =>
+                      onClickOpenPost({
+                        boardId: item.boardId,
+                        type: item.type,
+                        thumbnail: item.thumbnail,
+                        title: item.title,
+                        detail: item.detail,
+                        createdAt: item.createdAt,
+                      })
+                    }
                   >
-                    다운로드
-                  </a>
+                    자세히보기
+                  </div>
                 </div>
-              </div>
-              <div className="w-auto bg-white px-8 border-4 border-blue-200 rounded-xl">
-                <p className="font-bold text-lg my-4">
-                  부모님과 함께하는 삼율 어드밴티지
-                </p>
-                <p className="h-20 scrollbar-hide text-[#686868]">
-                  아동청소년들의 건강한 성장에 많은 관심을 가지고 있는
-                  알로이시오기지 1968에서 부모님과 함께 하는 삼율 Advantage
-                  프로그램을 준비하였습니다.
-                  <br />
-                  {/* <br />
-                  긍정적인 인간관계를 위하여 자기조율, 관계조율, 더 나아가
-                  공익조율이라는 개념을 배우고 실천하는 방법을 경험하는
-                  프로그램으로 자녀들이 행복한 인재로 성장하기를 바라는
-                  부모님들의 마음과 알로이시오 기지 1968의 바램을 알로이시오
-                  힐링센터와 연계해서 준비한 프로그램입니다.
-                  <br />
-                  <br />이 프로그램을 통해서 부모님은 자신의 조율을 통하여
-                  자녀들과 관계조율이 가능해지며 자녀들은 자신의 미래에 대한
-                  긍정적인 마인드를 갖게 되면서 진정으로 자신이 원하는 꿈을 찾고
-                  실천할 수 있도록 도와줍니다. */}
-                </p>
-                <div className="w-[100%] flex justify-center p-4">
-                  <a
-                    href="https://gizi1968.kr/wp-content/uploads/2024/04/삼율포스터1-01-848x1200.jpg"
-                    target="_blank"
-                    className="w-20 h-8 rounded-lg text-sm flex items-center justify-center"
-                  >
-                    다운로드
-                  </a>
-                </div>
-              </div>
-              <div className="w-auto bg-white px-8 border-4 border-blue-200 rounded-xl">
-                <p className="font-bold text-lg my-4">
-                  기지데이 이웃메이커스 체험프로그램(3/23 토)
-                </p>
-                <div className="w-[100%] flex justify-center p-4 pt-16">
-                  <a
-                    href="https://gizi1968.kr/wp-content/uploads/2024/03/포스터시안-03-03-958x1200.jpg"
-                    target="_blank"
-                    className="w-20 h-8 rounded-lg text-sm flex items-center justify-center"
-                  >
-                    다운로드
-                  </a>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -435,4 +435,6 @@ export default function Activity() {
       </div>
     </div>
   );
-}
+};
+
+export default Activity;

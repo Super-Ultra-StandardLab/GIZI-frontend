@@ -23,6 +23,4 @@ export const refreshContext = atom<RefreshState>({
   refresh: false,
 });
 
-export const loginContext = atom<LoginState>({
-  isLogined: false,
-});
+export const loginContext = atom<boolean>(false);

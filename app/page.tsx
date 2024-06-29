@@ -24,7 +24,7 @@ export default function Home() {
           </div>
           <div className="w-[35vw] h-[20vw] my-auto">
             {/* <YouTubePage /> */}
-            <video controls autoPlay loop className="" src="/gizi.mp4" />
+            <video controls autoPlay className="" src="/gizi.mp4" />
           </div>
         </div>
       </div>

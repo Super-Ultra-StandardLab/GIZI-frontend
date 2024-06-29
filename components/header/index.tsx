@@ -1,5 +1,7 @@
 "use client";
 
+import { loginContext } from "@/context";
+import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";

@@ -4,19 +4,20 @@ import { admin, getSubmit, login } from "@/api";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Post from "../post";
+import { useAtom } from "jotai";
+import { loginContext } from "@/context";
 
 const Login = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [refresh, setRefresh] = useState(false);
-  const [isLogin, setIsLogin] = useState<null | string>("");
-
+  const [isLogin, setIsLogin] = useAtom(loginContext);
   const router = useRouter();
 
   useEffect(() => {
     return () => {
       const token = localStorage.getItem("access_token");
-      setIsLogin(token);
+      if (token) return setIsLogin(true);
+      setIsLogin(false);
     };
   }, []);
 
@@ -29,10 +30,16 @@ const Login = () => {
       setPassword("");
       return alert("로그인에 실패하였습니다.");
     }
-    router.push("/"); // post구현 후 수정
+    router.push("/");
     alert("로그인에 성공하였습니다.");
     localStorage.setItem("access_token", result.token);
-    setIsLogin(localStorage.getItem("access_token"));
+    setIsLogin(true);
+  };
+
+  const onClickLogout = () => {
+    localStorage.clear();
+    setIsLogin(false);
+    alert("로그아웃 되었습니다.");
   };
 
   const ing = async () => {
@@ -43,10 +50,20 @@ const Login = () => {
 
   return (
     <div className="w-[45%] flex flex-col justify-center">
-      {isLogin ? (
-        <Post />
-      ) : (
-        <div className="w-full h-[30vw] flex justify-center rounded-2xl bg-[#ffffff] shadow-md">
+      <div className="w-full h-[30vw] flex justify-center rounded-2xl bg-[#ffffff] shadow-md">
+        {isLogin ? (
+          <div className="w-[70%] h-[50%] my-auto flex flex-col gap-8 justify-between">
+            <div className="text-3xl font-bold mx-auto my-4">
+              관리자 계정 로그아웃
+            </div>
+            <button
+              className="w-full h-[50px] rounded-md bg-red-400 font-bold"
+              onClick={() => onClickLogout()}
+            >
+              로그아웃
+            </button>
+          </div>
+        ) : (
           <form
             className="w-[70%] h-[70%] my-auto flex flex-col gap-8"
             onSubmit={(e) => e.preventDefault()}
@@ -73,8 +90,8 @@ const Login = () => {
               로그인
             </button>
           </form>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

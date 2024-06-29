@@ -1,4 +1,5 @@
 import ApplyInfoType from "@/type/applyInfoType.interface";
+import PostType from "@/type/postType.interface";
 import axios from "axios";
 import moment from "moment";
 
@@ -11,7 +12,7 @@ export const login = async ({
 }) => {
   try {
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}auth/admin/login`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/admin/login`,
       {
         userId,
         password,
@@ -27,7 +28,7 @@ export const login = async ({
 export const admin = async () => {
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}auth/admin`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/admin`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -55,7 +56,7 @@ export const submit = async ({
 }: ApplyInfoType) => {
   try {
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}submit`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/submit`,
       {
         programName,
         time,
@@ -79,7 +80,7 @@ export const submit = async ({
 export const getSubmit = async () => {
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}submit`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/submit`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -102,9 +103,9 @@ export const getCalendar = async ({
 }) => {
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}submit/calendar?year=${year}&month=${month} `
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/submit/calendar?year=${year}&month=${month} `
     );
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -129,7 +130,7 @@ export const getCalendar = async ({
 export const deleteSubmit = async (programId: number) => {
   try {
     const response = await axios.delete(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}submit/${programId}`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/submit/${programId}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -145,13 +146,11 @@ export const deleteSubmit = async (programId: number) => {
 
 export const uploadImage = async (image: File) => {
   try {
-    console.log("file", image);
     const file = new FormData();
-    file.append("file", image);
-    console.log("폼", file);
+    file.append("image", image);
 
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}upload`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/upload`,
       file,
       {
         headers: {
@@ -164,5 +163,40 @@ export const uploadImage = async (image: File) => {
   } catch (error) {
     console.error(error);
     return { success: false, message: "이미지 업로드에 실패하였습니다." };
+  }
+};
+
+export const createPost = async (post: PostType) => {
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/board`,
+      {
+        type: post.type,
+        thumbnail: post.thumbnail,
+        title: post.title,
+        detail: post.detail,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return { success: false, message: "게시물 생성에 실패하였습니다." };
+  }
+};
+
+export const getPost = async () => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/board/type?type=activity`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return { success: false, message: "게시물 조회에 실패했습니다." };
   }
 };
