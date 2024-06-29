@@ -82,7 +82,7 @@ const Page = () => {
         </div>
 
         <div className="h-[500px] w-full">
-          <table className="w-full border-collapse text-center border-4 rounded-3xl overflow-hidden bg-white">
+          <table className="w-full border-collapse text-center border-4 rounded-[2vw] overflow-hidden bg-white">
             <thead className="bg-cyan-500">
               <tr className="h-24">
                 <td className="bg-[#FFF27F]">프로그램 구성</td>

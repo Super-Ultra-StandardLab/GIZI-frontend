@@ -62,7 +62,7 @@ export default function Home() {
                     <div className="my-auto mx-4">월~금 09:00 ~ 15:30</div>
                   </div>
                   <div className="flex">
-                    <div className="rounded-full bg-[#f7f7f7] py-2 px-4 font-bold">
+                    <div className="rounded-full bg-[#f7f7f7] py-2 px-8 font-bold">
                       신청방법
                     </div>
                     <div className="my-auto mx-4">온라인 접수 후 개별 확정</div>
@@ -143,7 +143,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex">
-                    <div className="rounded-full flex justify-center w-[20%] h-[80%] bg-[#f7f7f7] p-2 font-bold">
+                    <div className="rounded-full flex justify-center w-[30%] h-[80%] bg-[#f7f7f7] p-2 font-bold">
                       <div className="my-auto">신청방법</div>
                     </div>
                     <div className="my-auto mx-4">

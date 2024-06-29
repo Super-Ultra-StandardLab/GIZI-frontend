@@ -36,7 +36,7 @@ const About = () => {
       <div className="w-screen flex justify-center">
         <div className="flex flex-col w-[80%] gap-[3vw]">
           <div className="h-[12vw] flex gap-5">
-            <div className="w-[10px] h-[100%] bg-[#E7E7E7]" />
+            <div className="w-[0.8vw] h-[100%] bg-[#E7E7E7]" />
             <div className="w-[45%] flex flex-col justify-between">
               <div className="text-5xl font-extrabold underline decoration-[#FFF27F] decoration-[1.8rem] underline-offset-[-1.4rem]">
                 삶의 기본기
@@ -61,15 +61,15 @@ const About = () => {
                 사회적 약자를 위한 배려, 이웃과의 빵 나눔을 통해 ‘공동체 의식’을
                 키웁니다.
               </div>
-              <div>
+              <div className="text-lg">
                 사회적 약자, 장애인은 우리가 더불어 살아야할 이웃입니다.
                 휠체어로 기지를 한바퀴 도는 것은 그것을 몸으로 알기 위함입니다.
               </div>
             </div>
-            <div className="w-[10px] h-[100%] bg-[#E7E7E7]" />
+            <div className="w-[0.8vw] h-[100%] bg-[#E7E7E7]" />
           </div>
           <div className="h-[12vw] flex gap-5">
-            <div className="w-[10px] h-[100%] bg-[#E7E7E7]" />
+            <div className="w-[0.8vw] h-[100%] bg-[#E7E7E7]" />
             <div className="w-[45%] flex flex-col justify-between">
               <div className="text-5xl font-extrabold underline decoration-[#FFF27F] decoration-[1.8rem] underline-offset-[-1.4rem]">
                 기지(basecamp)
@@ -112,7 +112,7 @@ const About = () => {
               <div className="text-2xl underline">
                 {structure[gizi].subtitle}
               </div>
-              <div>{structure[gizi].exp}</div>
+              <div className="text-base">{structure[gizi].exp}</div>
               <div className="flex flex-col gap-5">
                 {structure[gizi].floor.map((story, findex) => (
                   <div className="flex gap-4 font-bold" key={findex}>
@@ -128,7 +128,7 @@ const About = () => {
                               img: room.img,
                             })
                           }
-                          className="cursor-pointer hover:text-[#636363]"
+                          className="text-base cursor-pointer hover:text-[#636363]"
                         >
                           {room.name}
                         </div>

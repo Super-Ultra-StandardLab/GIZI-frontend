@@ -1,6 +1,6 @@
-import ApplyInfoType from '@/type/applyInfoType.interface';
-import axios from 'axios';
-import moment from 'moment';
+import ApplyInfoType from "@/type/applyInfoType.interface";
+import axios from "axios";
+import moment from "moment";
 
 export const login = async ({
   userId,
@@ -20,7 +20,7 @@ export const login = async ({
     return response.data;
   } catch (error) {
     console.error(error);
-    return { success: false, message: '관리자 로그인에 실패하였습니다.' };
+    return { success: false, message: "관리자 로그인에 실패하였습니다." };
   }
 };
 
@@ -30,14 +30,14 @@ export const admin = async () => {
       `${process.env.NEXT_PUBLIC_SERVER_URL}auth/admin`,
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
       }
     );
     return response.data;
   } catch (error) {
     console.log(error);
-    return { success: false, message: '관리자 인증에 실패했습니다.' };
+    return { success: false, message: "관리자 인증에 실패했습니다." };
   }
 };
 
@@ -59,7 +59,7 @@ export const submit = async ({
       {
         programName,
         time,
-        date: moment(date).format('YYYY-MM-DD'),
+        date: moment(date).format("YYYY-MM-DD"),
         email,
         name,
         phone,
@@ -72,7 +72,7 @@ export const submit = async ({
     return response.data;
   } catch (error) {
     console.error(error);
-    return { success: false, message: '예약 신청에 실패하였습니다.' };
+    return { success: false, message: "예약 신청에 실패하였습니다." };
   }
 };
 
@@ -82,14 +82,14 @@ export const getSubmit = async () => {
       `${process.env.NEXT_PUBLIC_SERVER_URL}submit`,
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
       }
     );
     return response.data;
   } catch (error) {
     console.log(error);
-    return { success: false, message: '신청 조회에 실패했습니다.' };
+    return { success: false, message: "신청 조회에 실패했습니다." };
   }
 };
 
@@ -102,15 +102,13 @@ export const getCalendar = async ({
 }) => {
   try {
     const response = await axios.get(
-      `${
-        process.env.NEXT_PUBLIC_SERVER_URL
-      }submit/calendar?year=${year}&month=${month + 1} `
+      `${process.env.NEXT_PUBLIC_SERVER_URL}submit/calendar?year=${year}&month=${month} `
     );
     console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);
-    return { success: false, message: '신청 캘린더 조회에 실패했습니다.' };
+    return { success: false, message: "신청 캘린더 조회에 실패했습니다." };
   }
 };
 
@@ -134,37 +132,37 @@ export const deleteSubmit = async (programId: number) => {
       `${process.env.NEXT_PUBLIC_SERVER_URL}submit/${programId}`,
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
       }
     );
     return response.data;
   } catch (error) {
     console.log(error);
-    return { success: false, message: '신청 삭제에 실패하였습니다.' };
+    return { success: false, message: "신청 삭제에 실패하였습니다." };
   }
 };
 
 export const uploadImage = async (image: File) => {
   try {
-    console.log('file', image);
+    console.log("file", image);
     const file = new FormData();
-    file.append('file', image);
-    console.log('폼', file);
+    file.append("file", image);
+    console.log("폼", file);
 
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_SERVER_URL}upload`,
       file,
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          "Content-Type": "multipart/form-data",
         },
       }
     );
     return response.data;
   } catch (error) {
     console.error(error);
-    return { success: false, message: '이미지 업로드에 실패하였습니다.' };
+    return { success: false, message: "이미지 업로드에 실패하였습니다." };
   }
 };
