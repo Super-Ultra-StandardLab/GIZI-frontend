@@ -63,10 +63,10 @@ const Post = () => {
       return -1;
     }
     const result = await createPost(post);
-    // if (result.success === false) {
-    //   alert("게시물 등록에 실패하였습니다.");
-    //   return -1;
-    // }
+    if (result.success === false) {
+      alert("게시물 등록에 실패하였습니다.");
+      return -1;
+    }
     alert("게시물이 성공적으로 등록되었습니다.");
     router.push("/");
   };
@@ -116,7 +116,7 @@ const Post = () => {
               {["기지소식", "기지활동", "공지"].map((item) => (
                 <div
                   key={item}
-                  className={`cursor-pointer py-[0.5vw] px-[1.5vw] rounded-full font-bold ${
+                  className={`cursor-pointer py-[0.5vw] px-[1.5vw] rounded-full font-bold text-base ${
                     post.type === typeGenerator(item)
                       ? "bg-[#BBEBFF]"
                       : "bg-[#eeeeee]"
@@ -145,7 +145,7 @@ const Post = () => {
               </div>
             </div>
             <textarea
-              className="w-full min-h-[15vw] p-[1vw]"
+              className="w-full min-h-[15vw] p-[1vw] text-base"
               placeholder="게시물 내용을 작성해주세요"
               value={post.detail}
               onChange={(e) =>
@@ -179,7 +179,7 @@ const Post = () => {
               <div className="p-[1vw]"></div>
             </div>
             <p
-              className={`h-[15vw] p-[1vw] overflow-y-auto ${
+              className={`h-[15vw] p-[1vw] overflow-y-auto text-base ${
                 translator(post.detail) === "" ? "text-[#9CA3AF]" : "text-black"
               }`}
               dangerouslySetInnerHTML={{
