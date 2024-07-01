@@ -93,14 +93,14 @@ const Post = () => {
           : "h-screen flex flex-col justify-center bg-[#f1f1f1]"
       }`}
     >
-      <button
-        className="bg-[#BBEBFF] text-2xl font-bold rounded-[0.5vw] top-[85vh] right-[6vw] p-[1vw] fixed"
-        onClick={() => handlePost()}
-      >
-        게시하기
-      </button>
       {isLogin ? (
         <div className="w-full h-full flex justify-between">
+          <button
+            className="bg-[#BBEBFF] text-2xl font-bold rounded-[0.5vw] top-[85vh] right-[6vw] p-[1vw] fixed"
+            onClick={() => handlePost()}
+          >
+            게시하기
+          </button>
           <div className="w-full flex flex-col gap-[1vw] py-[5vw]">
             <div className="w-full h-[7%]">
               <input
